@@ -114,10 +114,11 @@ function start(r,l){
 }
 
 let pre = "", pID,  t = "transform", flip = "rotateY(180deg)", flipBack = "rotateY(0deg)",ppID = 0, turn = 0;
-let moves =0;
+
 //Function for flipping blocks
 function change(x) {
     //Variables
+    let moves =0;
     let i = "#" + x + " .inner";
     let f = "#" + x + " .inner .front";
     let b = "#" + x + " .inner .back";
