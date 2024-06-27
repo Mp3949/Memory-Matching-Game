@@ -25,8 +25,8 @@ if (p) while (--p) {
 
 //Showing instructions
 window.onload = function () {
-    $("#main").html(`<img src="main.jpeg>`);
-    $("#main").fadeOut(2000);
+    // $("#main").html(`<img src="main.jpeg>`);
+    // $("#main").fadeOut(2000);
     $("#inst1").html(`<div class="inst">
         <h1>Welcome !</h1>
         <u><h2>Instructions For Game</h2></u><br/>
@@ -62,7 +62,7 @@ let  time, gameMode;
 //Game code
 function start(r,l){
     // timers and moves
-    min = 0,sec=0,move=0;
+    min = 0,sec=0,moves=0;
     $("#time").html("Time: 00:00");
     $("#moves").html("Moves: 0");
     time = setInterval(function () {
@@ -114,25 +114,24 @@ function start(r,l){
 }
 
 let pre = "", pID,  t = "transform", flip = "rotateY(180deg)", flipBack = "rotateY(0deg)",ppID = 0, turn = 0;
-
 //Function for flipping blocks
 function change(x) {
     //Variables
-    let moves =0;
     let i = "#" + x + " .inner";
     let f = "#" + x + " .inner .front";
     let b = "#" + x + " .inner .back";
-
+    
     //Dont flip for these conditions
+    // let moves =0;
     if (turn == 2 || $(i).attr("flip") == "block" || ppID == x) { }
-
+    
     //Flip
     else {
         $(i).css(t, flip);
         if (turn == 1) {
             //This value will prevent spam clicking
             turn = 2;
-
+            
             //If both flipped blocks are not same
             if (pre != $(b).text()) {
                 setTimeout(function () {
@@ -141,21 +140,21 @@ function change(x) {
                     ppID = 0;
                 }, 1000);
             }
-
+            
             //If blocks flipped are same
             else {
                 remains--;
                 $(i).attr("flip", "block");
                 $(pID).attr("flip", "block");
             }
-
+            
             setTimeout(function () {
                 turn = 0;
                 //Increase moves
                 moves++;
                 $("#moves").html("Moves: " + moves);
             }, 1150);
-
+            
         }
         else {
             pre = $(b).text();
@@ -180,3 +179,10 @@ function change(x) {
         }
     }
 }
+
+
+
+
+
+
+
